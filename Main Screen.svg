@@ -1,0 +1,88 @@
+<?xml version="1.0" standalone="no"?>
+<?xml-stylesheet type="text/css" href="styles/style.css"?>
+
+<svg width="100%" height="100%" viewBox="0 0 832 420" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<g id="Main Screen">
+		<rect width="832" height="420" fill="#333333"/>
+		<g id="GameArea">
+			<rect id="Background" x="117.5" y="10.5" width="597" height="397" fill="#222222" stroke="white" stroke-width="3"/>
+			<g id="Middle Line">
+				<rect id="Line Part 1" x="413" y="201" width="6" height="16" fill="#555555"/>
+				<rect id="Line Part 8" x="413" y="233" width="6" height="16" fill="#555555"/>
+				<rect id="Line Part 9" x="413" y="265" width="6" height="16" fill="#555555"/>
+				<rect id="Line Part 10" x="413" y="297" width="6" height="16" fill="#555555"/>
+				<rect id="Line Part 11" x="413" y="329" width="6" height="16" fill="#555555"/>
+				<rect id="Line Part 12" x="413" y="361" width="6" height="16" fill="#555555"/>
+				<rect id="Line Part 13" x="413" y="393" width="6" height="13" fill="#555555"/>
+				<rect id="Line Part 2" x="413" y="169" width="6" height="16" fill="#555555"/>
+				<rect id="Line Part 3" x="413" y="137" width="6" height="16" fill="#555555"/>
+				<rect id="Line Part 4" x="413" y="105" width="6" height="16" fill="#555555"/>
+				<rect id="Line Part 5" x="413" y="73" width="6" height="16" fill="#555555"/>
+				<rect id="Line Part 6" x="413" y="41" width="6" height="16" fill="#555555"/>
+				<rect id="Line Part 7" x="413" y="12" width="6" height="13" fill="#555555"/>
+			</g>
+			<rect id="Player_1_Platform" x="126" y="173" width="10" height="60" fill="white"/>
+			<rect id="Player_2_Platform" x="696" y="173" width="10" height="60" fill="white"/>
+			<g id="Player_1_Name">
+				<text id="Player_1_Name_Text" class="Player_Name_Text" x="274" y="385" dominant-baseline="middle" text-anchor="middle">Player 1 Name</text>
+			</g>
+			<g id="Player_2_Name">
+				<text id="Player_2_Name_Text" class="Player_Name_Text" x="578" y="385" dominant-baseline="middle" text-anchor="middle">Player 2 Name</text>
+			</g>
+			<g id="Score_2">
+				<text id="Score_2_Text" class="Score_Text" x="572" y="48" dominant-baseline="middle" text-anchor="middle">SCORE: 13</text>
+			</g>
+			<g id="Score_1">
+				<text id="Score_1_Text" class="Score_Text" x="259" y="48" dominant-baseline="middle" text-anchor="middle">SCORE: 13</text>
+			</g>
+			<rect id="Ball" x="265" y="126" width="10" height="10" fill="#FFFFFF"/>
+		</g>
+	</g>
+	<g id="NotifyArea" transform="translate(116, 9)">
+		<g id="Player_Name_Input">
+			<rect x="0" y="0" width="600" height="400" fill="black" fill-opacity="0.7"/>
+			<rect x="95.5" y="139.5" width="409" height="120" fill="#333333"/>
+			<g transform="translate(95.5, 139.5)">
+				<text id="Player_Name_Input_Info_Text" x="19.5" y="51.5" fill="white" font-size="32px">Player 1 Name:</text>
+				<rect id="Player_Name_Input_Handler" x="19.5" y="66.5" width="370" height="28" fill="#5D5D5D"/>
+				<text id="Player_Name_Input_Text" x="24.5" y="86.5" fill="white" font-size="20px">Enter name...</text>
+			</g>
+			<rect x="95.5" y="139.5" width="409" height="120" stroke="white"/>
+		</g>
+		<g id="End_Game">
+			<rect width="600" height="400" fill="black" fill-opacity="0.7"/>
+			<text x="300" y="182" fill="white" font-size="96px" dominant-baseline="middle" text-anchor="middle">GAME OVER</text>
+			<text id="Final_Score_Text" x="296" y="226" fill="white" font-size="24px" dominant-baseline="middle" text-anchor="middle">Player 1 has scored 11 points</text>
+			<text x="299" y="301" fill="white" font-size="20px" dominant-baseline="middle" text-anchor="middle">For rematch press 'R'</text>
+		</g>
+		<g id="Start_Game">
+			<rect width="600" height="400" fill="black"/>
+			<text x="299" y="187" fill="white" font-size="48px" dominant-baseline="middle" text-anchor="middle">PING PONG</text>
+			<text class="transparency_anim" x="299" y="221.2" fill="white" font-size="24px" dominant-baseline="middle" text-anchor="middle">press enter to start</text>
+		</g>
+	</g>
+	<g id="ControlInfo" transform="translate(10, 20)">
+		<text x="0.5" y="9" fill="white" font-size="15px" dominant-baseline="middle">CTRL+R - Restart</text>
+
+		<text x="0.5" y="24" fill="white" font-size="15px" dominant-baseline="middle">R - Reset Ball/</text>
+		<text x="48.5" y="39" fill="white" font-size="15px" dominant-baseline="middle" text-anchor="middle">Rematch</text>
+
+		<text x="0.5" y="68" fill="white" font-size="15px" dominant-baseline="middle">Player 1:</text>
+		<text x="0.5" y="83" fill="white" font-size="15px" dominant-baseline="middle">W - Move UP</text>
+		<text x="0.5" y="98" fill="white" font-size="15px" dominant-baseline="middle">S - Move DOWN</text>
+
+		<text x="0.5" y="126" fill="white" font-size="15px" dominant-baseline="middle">Player 2:</text>
+		<text x="0.5" y="141" fill="white" font-size="15px" dominant-baseline="middle">↑ - Move UP</text>
+		<text x="0.5" y="156" fill="white" font-size="15px" dominant-baseline="middle">↓ - Move DOWN</text>
+	</g>
+	<script xlink:href="scripts/library/svgnode.js" />
+	<script xlink:href="scripts/library/collider.js" />
+	<script xlink:href="scripts/library/collisionNode.js" />
+	<script xlink:href="scripts/library/movingNode.js" />
+	<script xlink:href="scripts/library/playerPlatformNode.js" />
+	<script xlink:href="scripts/library/ball.js" />
+	<script xlink:href="scripts/library/input.js" />
+	<script xlink:href="scripts/library/player.js" />
+	<script xlink:href="scripts/library/textnode.js" />
+	<script xlink:href="scripts/gameManager.js" />
+</svg>

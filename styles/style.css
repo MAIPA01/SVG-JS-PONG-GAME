@@ -1,0 +1,38 @@
+@font-face{
+	font-family: "VT323";
+	src: url("fonts/VT323-Regular.ttf");
+	font-style:normal;
+}
+
+text {
+	font-family: "VT323";
+}
+
+.hidden {
+	display: none;
+}
+
+.Player_Name_Text, .Score_Text {
+	fill: white;
+}
+
+.Player_Name_Text {
+	font-size: 25px;
+}
+
+.Score_Text {
+	font-size: 30px;
+}
+
+.transparency_anim {
+	animation: transparency 0.7s infinite alternate;
+}
+
+@keyframes transparency {
+	0% {
+		opacity: 0.8;
+	}
+	100% {
+		opacity: 0.2;
+	}
+}
