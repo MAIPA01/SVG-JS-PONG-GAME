@@ -54,17 +54,17 @@ function initNameInput() {
 }
 
 function initAllStaticColliders() {
-    let rightWall = new BoxCollider(714.5, 210, 3, 400, "rightWall");
+    let rightWall = new RectangleCollider(714.5 - 1.5, 210 - 200, 3, 400, "rightWall");
     rightWall.onCollisionEnter = (collider) => onScoreWallCollision(collider, "right");
     
-    let leftWall = new BoxCollider(117.5, 210, 3, 400, "leftWall");
+    let leftWall = new RectangleCollider(117.5 - 1.5, 210 - 200, 3, 400, "leftWall");
     leftWall.onCollisionEnter = (collider) => onScoreWallCollision(collider, "left");
 
-    walls = new CollisionNode("#Background");
-    walls.addBoxColider(new BoxCollider(416, 409.5, 600, 3, "bottomWall"));
-    walls.addBoxColider(new BoxCollider(416, 10.5, 600, 3, "topWall"));
-    walls.addBoxColider(rightWall);
-    walls.addBoxColider(leftWall);
+    walls = new RigidbodyNode("#Background");
+    walls.addColider(new RectangleCollider(416 - 300, 409.5 - 1.5, 600, 3, "bottomWall"));
+    walls.addColider(new RectangleCollider(416 - 300, 10.5 - 1.5, 600, 3, "topWall"));
+    walls.addColider(rightWall);
+    walls.addColider(leftWall);
 
     collisionNodes.push(walls);
 }
@@ -231,7 +231,7 @@ function onUpdatePhysics() {
     newUpdateTime = new Date().getTime();
     let elapsedTime = (newUpdateTime - lastUpdateTime) / 1000;
 
-    onCollision();
+    onCollision(elapsedTime);
 
     ball.move(elapsedTime);
     player1.platform.move(elapsedTime);
@@ -240,18 +240,15 @@ function onUpdatePhysics() {
     lastUpdateTime = newUpdateTime;
 }
 
-function onCollision() {
+function onCollision(elapsedTime) {
     for (i = 0; i < collisionNodes.length; i++) {
-        for (j = i + 1; j < collisionNodes.length; j++) {
-            collisionNodes[i].checkCollision(collisionNodes[j]);
+        for (j = 0; j < collisionNodes.length; j++) {
+            //collisionNodes[i].checkCollision(collisionNodes[j]);
+            if (collisionNodes[i] != collisionNodes[j]) {
+                collisionNodes[i].collidesWith(collisionNodes[j], elapsedTime);
+            }
         }
     }
-
-    // walls.checkCollision(ball);
-    // walls.checkCollision(player1.platform);
-    // walls.checkCollision(player2.platform);
-    // ball.checkCollision(player1.platform);
-    // ball.checkCollision(player2.platform);
 }
 
 function onScorePoint(playerNum) {

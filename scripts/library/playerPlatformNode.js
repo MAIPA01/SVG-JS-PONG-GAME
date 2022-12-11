@@ -1,17 +1,14 @@
-class PlayerPlatform extends MovingNode {
+class PlayerPlatform extends RigidbodyNode {
     constructor(selector, playerNum, keyUpCode, keyDownCode, baseSpeed){
         super(selector);
-        
-        let middle_x = this.x + this.width/2;
-        let middle_y = this.y + this.height/2;
 
-        let collider_top = new BoxCollider(middle_x, middle_y - 11*this.height/26, this.width, 2*this.height/13, 'playerPlatform' + playerNum + '-top');
+        let collider_top = new RectangleCollider(this.x, this.y, this.width, 2*this.height/13, 'playerPlatform' + playerNum + '-top');
         collider_top.onCollisionEnter = (collider) => this.onCollisionEnter_top(collider);
         collider_top.onCollisionExit = (collider) => this.onCollisionExit_top(collider);
-        let collider_middle_top = new BoxCollider(middle_x, middle_y - 5*this.height/26, this.width, 4*this.height/13, 'playerPlatform' + playerNum + '-middle-top');
-        let collider_middle = new BoxCollider(middle_x, middle_y, this.width, this.height/13, 'playerPlatform' + playerNum + '-middle');
-        let collider_middle_bottom = new BoxCollider(middle_x, middle_y + 5*this.height/26, this.width, 4*this.height/13, 'playerPlatform' + playerNum + '-middle-bottom');
-        let collider_bottom = new BoxCollider(middle_x, middle_y + 11*this.height/26, this.width, 2*this.height/13, 'playerPlatform' + playerNum + '-bottom');
+        let collider_middle_top = new RectangleCollider(this.x, this.y + 2*this.height/13, this.width, 4*this.height/13, 'playerPlatform' + playerNum + '-middle-top');
+        let collider_middle = new RectangleCollider(this.x, this.y + 6*this.height/13, this.width, this.height/13, 'playerPlatform' + playerNum + '-middle');
+        let collider_middle_bottom = new RectangleCollider(this.x, this.y + 7*this.height/13, this.width, 4*this.height/13, 'playerPlatform' + playerNum + '-middle-bottom');
+        let collider_bottom = new RectangleCollider(this.x, this.y + 11*this.height/13, this.width, 2*this.height/13, 'playerPlatform' + playerNum + '-bottom');
         collider_bottom.onCollisionEnter = (collider) => this.onCollisionEnter_bottom(collider);
         collider_bottom.onCollisionExit = (collider) => this.onCollisionExit_bottom(collider);
         

@@ -76,9 +76,11 @@
 		<text x="0.5" y="156" fill="white" font-size="15px" dominant-baseline="middle">↓ - Move DOWN</text>
 	</g>
 	<script xlink:href="scripts/library/svgnode.js" />
-	<script xlink:href="scripts/library/collider.js" />
+	<!-- <script xlink:href="scripts/library/collider.js" />
 	<script xlink:href="scripts/library/collisionNode.js" />
-	<script xlink:href="scripts/library/movingNode.js" />
+	<script xlink:href="scripts/library/movingNode.js" /> -->
+	<script xlink:href="scripts/library/RectangleCollider.js" />
+	<script xlink:href="scripts/library/rigidbodyNode.js" />
 	<script xlink:href="scripts/library/playerPlatformNode.js" />
 	<script xlink:href="scripts/library/ball.js" />
 	<script xlink:href="scripts/library/input.js" />

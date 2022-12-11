@@ -1,9 +1,9 @@
-class Ball extends MovingNode {
+class Ball extends RigidbodyNode {
     constructor(selector) {
         super(selector);
-        let collider = new BoxCollider(this.x + this.width/2, this.y + this.height/2, this.width, this.height, "ball");
+        let collider = new RectangleCollider(this.x, this.y, this.width, this.height, "ball");
         collider.onCollisionEnter = (collider) => this.onCollisionEnter(collider);
-        this.addBoxColider(collider);
+        this.addColider(collider);
 
         this.wallSound = new Audio("sounds/Pong_Wall.mp3");
         this.wallSound.volume = 1;
