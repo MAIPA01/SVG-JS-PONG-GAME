@@ -1,6 +1,7 @@
 
 let startGameWindow = null;
 let endGameWindow = null;
+let pauseGameWindow = null;
 
 let nameInputWindow = null;
 let nameInput = null;
@@ -34,6 +35,8 @@ let canResetBall = false;
 let lastBallStartX = ball_start_x;
 let lastBallStartY = ball_start_y;
 let lastStartType = 0;
+
+let paused = false;
 
 function randomValue(min, max) {
     return Math.floor(Math.random() * (max-min) + min);
@@ -123,6 +126,7 @@ function startGame(startType) {
     }
     ball.setAngleVelocity(ball_speed, angle);
     canResetBall = true;
+    canPause = true;
 }
 
 function rematch() {
@@ -130,7 +134,18 @@ function rematch() {
     player2.reset(platform_right_start_x, platforms_start_y);
     
     canResetBall = false;
+    canPause = false;
     setTimeout(() => startGame(0), 1000);
+}
+
+function pause() {
+    paused = true;
+    pauseGameWindow.set("class", "");
+}
+
+function resume() {
+    paused = false;
+    pauseGameWindow.set("class", "hidden");
 }
 
 function showStartGameWindow() {
@@ -176,6 +191,10 @@ function onStart() {
 
     endGameWindow = new SVGNode("#End_Game");
     endGameWindow.set("class", "hidden");
+
+    pauseGameWindow = new SVGNode("#Pause_Menu");
+    pauseGameWindow.set("class", "hidden");
+
     document.addEventListener("keydown", (event) => {
         if (event.key.toLowerCase() === 'r') {
             if (event.ctrlKey) {
@@ -188,13 +207,29 @@ function onStart() {
                 rematch();
                 return;
             }
-            else if (canResetBall) {
+            else if (canResetBall && !paused) {
                 ball.setPos(lastBallStartX, lastBallStartY);
                 ball.setVelocity(0,0);
                 canResetBall = false;
                 setTimeout(() => startGame(lastStartType), 1000);
                 return;
             }
+        }
+        else if (event.key.toLowerCase() === 'p') {
+            if (canResetBall) {
+                if (paused) {
+                    resume();
+                }
+                else {
+                    pause();
+                }
+            }
+        }
+    });
+
+    document.addEventListener('visibilitychange', (event) => {
+        if (document.visibilityState != 'visible' && canResetBall) {
+            pause();
         }
     });
 }
@@ -211,10 +246,20 @@ function onScoreWallCollision(collider, wallSide) {
 }
 
 async function onUpdate() {
-    onUpdateUI();
+    newUpdateTime = new Date().getTime();
+    let elapsedTime = (newUpdateTime - lastUpdateTime) / 1000;
 
-    onUpdatePhysics();
+    if (!paused) {
+        onUpdateUI();
 
+        onUpdatePhysics(elapsedTime);
+
+        if (!document.hasFocus() && canResetBall){
+            pause();
+        }
+    }
+
+    lastUpdateTime = newUpdateTime;
     setTimeout(onUpdate, 0);
 }
 
@@ -227,17 +272,12 @@ function onUpdateUI() {
     player2.updateUI();
 }
 
-function onUpdatePhysics() {
-    newUpdateTime = new Date().getTime();
-    let elapsedTime = (newUpdateTime - lastUpdateTime) / 1000;
-
+function onUpdatePhysics(elapsedTime) {
     onCollision();
 
     ball.move(elapsedTime);
     player1.platform.move(elapsedTime);
     player2.platform.move(elapsedTime);
-
-    lastUpdateTime = newUpdateTime;
 }
 
 function onCollision() {
@@ -246,12 +286,6 @@ function onCollision() {
             collisionNodes[i].checkCollision(collisionNodes[j]);
         }
     }
-
-    // walls.checkCollision(ball);
-    // walls.checkCollision(player1.platform);
-    // walls.checkCollision(player2.platform);
-    // ball.checkCollision(player1.platform);
-    // ball.checkCollision(player2.platform);
 }
 
 function onScorePoint(playerNum) {

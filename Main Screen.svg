@@ -60,6 +60,11 @@
 			<text x="299" y="187" fill="white" font-size="48px" dominant-baseline="middle" text-anchor="middle">PING PONG</text>
 			<text class="transparency_anim" x="299" y="221.2" fill="white" font-size="24px" dominant-baseline="middle" text-anchor="middle">press enter to start</text>
 		</g>
+		<g id="Pause_Menu">
+			<rect id="Background" width="600" height="400" fill="black" fill-opacity="0.7"/>
+			<text x="300" y="183" fill="white" font-size="96px" dominant-baseline="middle" text-anchor="middle">PAUSED</text>
+			<text x="300" y="238" fill="white" font-size="20px" dominant-baseline="middle" text-anchor="middle">Press 'P' to resume</text>
+		</g>
 	</g>
 	<g id="ControlInfo" transform="translate(10, 20)">
 		<text x="0.5" y="9" fill="white" font-size="15px" dominant-baseline="middle">CTRL+R - Restart</text>
@@ -67,14 +72,19 @@
 		<text x="0.5" y="24" fill="white" font-size="15px" dominant-baseline="middle">R - Reset Ball/</text>
 		<text x="48.5" y="39" fill="white" font-size="15px" dominant-baseline="middle" text-anchor="middle">Rematch</text>
 
-		<text x="0.5" y="68" fill="white" font-size="15px" dominant-baseline="middle">Player 1:</text>
-		<text x="0.5" y="83" fill="white" font-size="15px" dominant-baseline="middle">W - Move UP</text>
-		<text x="0.5" y="98" fill="white" font-size="15px" dominant-baseline="middle">S - Move DOWN</text>
+		<text x="0.5" y="54" fill="white" font-size="15px" dominant-baseline="middle">P - Pause/Resume</text>
 
-		<text x="0.5" y="126" fill="white" font-size="15px" dominant-baseline="middle">Player 2:</text>
-		<text x="0.5" y="141" fill="white" font-size="15px" dominant-baseline="middle">↑ - Move UP</text>
-		<text x="0.5" y="156" fill="white" font-size="15px" dominant-baseline="middle">↓ - Move DOWN</text>
+		<text x="0.5" y="83" fill="white" font-size="15px" dominant-baseline="middle">Player 1:</text>
+		<text x="0.5" y="98" fill="white" font-size="15px" dominant-baseline="middle">W - Move UP</text>
+		<text x="0.5" y="113" fill="white" font-size="15px" dominant-baseline="middle">S - Move DOWN</text>
+
+		<text x="0.5" y="141" fill="white" font-size="15px" dominant-baseline="middle">Player 2:</text>
+		<text x="0.5" y="156" fill="white" font-size="15px" dominant-baseline="middle">↑ - Move UP</text>
+		<text x="0.5" y="171" fill="white" font-size="15px" dominant-baseline="middle">↓ - Move DOWN</text>
 	</g>
+	<text x="775" y="374" fill="white" font-size="15px" dominant-baseline="middle" text-anchor="middle">Sounds and Music</text>
+	<text x="775" y="387" fill="white" font-size="15px" dominant-baseline="middle" text-anchor="middle">From original</text>
+	<text x="775" y="400" fill="white" font-size="15px" dominant-baseline="middle" text-anchor="middle">Atari PONG game</text>
 	<script xlink:href="scripts/library/svgnode.js" />
 	<script xlink:href="scripts/library/collider.js" />
 	<script xlink:href="scripts/library/collisionNode.js" />
